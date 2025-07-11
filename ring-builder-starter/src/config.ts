@@ -1,32 +1,18 @@
 import type { JewelryConfig } from './types/JewelryConfig';
 export const JEWELRY_CONFIG: JewelryConfig  = { 
     "baseURL": "https://pixotronicscontent.s3.ap-south-1.amazonaws.com/engagementring/",
-    "layerBase":"https://pixotronicscontent.s3.ap-south-1.amazonaws.com/layerconfig/",
     "viewer" : 
     {
         "rootScaleFactor" : 1,
-        "canvasId": "mcanvas",
-        "enabled": false,
-        "autoScale" : false,
-        "autoCenter": false,
         "displayCanvasScaling":
         {
             "enabled": true,
-            "maxScale" : 1.5
         },
-        "fitToViewOnLoad": true
     },
 
     "plugins":{
-        "importPopUp" : false,
-        "enableDrop":false,
-        "debugPlugin": {
-            "enabled": false
-        },
         "diamondPlugin":{
-            "enabled": true,
             "normalMapRes": 512,
-            "cacheEnabled": true
         },
         "groundPlugin":{
             "enabled": true,
@@ -99,15 +85,15 @@ export const JEWELRY_CONFIG: JewelryConfig  = {
             "options": {
                 "yellow-gold": {
                 "displayName": "Yellow-Gold",
-                "file": "gold-yellow.pmat"
+                "file": "layerconfig/gold-yellow.pmat"
                 },
                 "white-gold": {
                 "displayName": "White-Gold",
-                "file": "gold-white.pmat"
+                "file": "layerconfig/gold-white.pmat"
                 },
                 "rose-gold": {
                 "displayName": "Rose-Gold", 
-                "file": "gold-rose.pmat"
+                "file": "layerconfig/gold-rose.pmat"
                 },
             },
             "defaultOption": "yellow-gold",
@@ -186,22 +172,4 @@ export const JEWELRY_CONFIG: JewelryConfig  = {
             "mainDiamondMaterials": ["Round_Main", "Cushion", "Pear"],
             "metalMaterials": ["Metal"]
         },
-
-        "ui": {
-          "enabled": true,
-          "containerId": "mconfigurator",
-          "clearContainer": true,
-          "buttonClass": "config-button",
-          "sectionClass": "variations",
-          "showSectionTitles": true
-        },
-        
-        "performance": {
-        "disposeOldModels": true,
-        "memoryCleanup": true,
-        "refreshPipelineOnPluginAdd": true,
-        "setDirtyOnMaterialChange": true
-        },
-        
-
 }

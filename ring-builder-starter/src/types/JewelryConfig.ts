@@ -1,26 +1,13 @@
 export interface ViewerConfig {
     rootScaleFactor: number;
-    canvasId: string;
-    enabled: boolean;
-    autoScale: boolean;
-    autoCenter: boolean;
     displayCanvasScaling: {
       enabled: boolean;
-      maxScale: number;
     };
-    fitToViewOnLoad: boolean;
   }
   
   export interface PluginConfig {
-    importPopUp: boolean;
-    enableDrop: boolean;
-    debugPlugin: {
-      enabled: boolean;
-    };
     diamondPlugin: {
-      enabled: boolean;
       normalMapRes: number;
-      cacheEnabled: boolean;
     };
     groundPlugin: {
       enabled: boolean;
@@ -106,25 +93,8 @@ export interface ViewerConfig {
     metalMaterials: string[];
   }
   
-  export interface UIConfig {
-    enabled: boolean;
-    containerId: string;
-    clearContainer: boolean;
-    buttonClass: string;
-    sectionClass: string;
-    showSectionTitles: boolean;
-  }
-  
-  export interface PerformanceConfig {
-    disposeOldModels: boolean;
-    memoryCleanup: boolean;
-    refreshPipelineOnPluginAdd: boolean;
-    setDirtyOnMaterialChange: boolean;
-  }
-  
   export interface JewelryConfig {
     baseURL: string;
-    layerBase: string;
     viewer: ViewerConfig;
     plugins: PluginConfig;
     assets: AssetConfig;
@@ -132,7 +102,5 @@ export interface ViewerConfig {
     materials: MaterialsConfig;
     fixedModels: FixedModelsConfig;
     materialNameMappings: MaterialNameMappings;
-    ui: UIConfig;
-    performance: PerformanceConfig;
   }
   

@@ -5,173 +5,144 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ring builder</title>
-    <link rel="stylesheet" href="/src/style.css" />
+    <link rel="stylesheet" href="/src/index.css" />
   </head>
-  <body>
+  <body class="bg-[#1b1b1f]">
     <div id="container">
-      <div id="configurator-form">
-        <h2>Configure Your Ring</h2>
-        <div class="form-group">
-            <label for="baseURL">Base URL:</label>
-            <input type="text" id="baseURL" value="https://pixotronicscontent.s3.ap-south-1.amazonaws.com/engagementring/" required>
+        <div id="home" class="flex flex-col lg:flex-row justify-center items-center min-h-screen w-full">
+            <div class="flex-1 flex justify-center items-center p-5 bg-transparent box-border min-h-[40vh] lg:min-h-screen">
+                <img src="panther.png" alt="Panther Logo" class="max-w-[50vw] max-h-[40vh] lg:max-h-[50vh] object-contain"/>
+            </div>
+            <div class="w-full max-w-[90vw] lg:max-w-[800px] bg-gradient-to-br from-[#4f4f51] to-[#262626] p-4 lg:p-6 shadow-md mx-4 lg:mx-8">
+                  <!-- Step Indicators -->
+                  <h2 class="text-white text-xl text-center mb-4" >Ring Configurator</h2>
+                  <div class="mb-6 lg:mb-8 border-b border-gray-300 pb-4">
+                    <ul class="flex flex-wrap gap-2 lg:gap-10 justify-center lg:justify-start">
+                      <li class="form-step-indicator active flex items-center gap-2 lg:gap-3 text-sm lg:text-base font-medium text-gray-400">
+                        <span class="flex h-8 w-8 lg:h-9 lg:w-9 items-center justify-center rounded-full bg-gray-200 text-gray-500 text-sm lg:text-base">1</span>
+                        <span class="hidden sm:inline">Models Info</span>
+                      </li>
+                      <li class="form-step-indicator flex items-center gap-2 lg:gap-3 text-sm lg:text-base font-medium text-gray-400">
+                        <span class="flex h-8 w-8 lg:h-9 lg:w-9 items-center justify-center rounded-full bg-gray-200 text-gray-500 text-sm lg:text-base">2</span>
+                        <span class="hidden sm:inline">Plugin Info</span>
+                      </li>
+                      <li class="form-step-indicator flex items-center gap-2 lg:gap-3 text-sm lg:text-base font-medium text-gray-400">
+                        <span class="flex h-8 w-8 lg:h-9 lg:w-9 items-center justify-center rounded-full bg-gray-200 text-gray-500 text-sm lg:text-base">3</span>
+                        <span class="hidden sm:inline">Head, Shank, Metal Info</span>
+                      </li>
+                      <li class="form-step-indicator flex items-center gap-2 lg:gap-3 text-sm lg:text-base font-medium text-gray-400">
+                        <span class="flex h-8 w-8 lg:h-9 lg:w-9 items-center justify-center rounded-full bg-gray-200 text-gray-500 text-sm lg:text-base">4</span>
+                        <span class="hidden sm:inline">Diamond Info</span>
+                      </li>
+                    </ul>
+                  </div>
+            
+                  <!-- Step 1 -->
+                <div class="flex flex-col justify-center items-center">
+                    <div class="form-step form-style active w-full max-w-none lg:max-w-[400px]">
+                        <div class="mb-5 flex flex-col items-center gap-5">
+                          <div class="w-full">
+                            <label for="baseURL">Base URL:</label>
+                            <input type="text" id="baseURL" value="https://pixotronicscontent.s3.ap-south-1.amazonaws.com/engagementring/" required>
+                          </div>
+                          <div class="w-full">
+                            <label for="sceneSettings">Scene Settings URL:</label>
+                            <input type="text" id="sceneSettings" value="https://pixotronicscontent.s3.ap-south-1.amazonaws.com/engagementring/scenesettings.vjson" required>
+                          </div>
+                        </div>
+                        <div class="w-full">
+                            <label for="rootScaleFactor">Root Scale Factor:</label>
+                            <input type="number" id="rootScaleFactor" value="1" step="0.1" required>
+                        </div>
+                    </div>
+
+                 <!-- Step 2 -->
+                 <div class="form-step form-style hidden w-full max-w-none lg:max-w-[400px]">
+                    <div class="mb-5 flex flex-col items-center gap-5">
+                        <div class="w-full">
+                            <label for="normalMapRes">Diamond Plugin Normal Map Resolution:</label>
+                            <input type="number" id="normalMapRes" value="512" required>
+                        </div>
+                        <div class="w-full">
+                            <label for="groundPluginEnabled">Ground Plugin Enabled (true/false):</label>
+                            <input type="text" id="groundPluginEnabled" value="true" placeholder="Enter true or false" required>
+                        </div>
+                        <div class="w-full">
+                            <label for="autoBakeShadows">Ground Plugin Auto Bake Shadows (true/false):</label>
+                            <input type="text" id="autoBakeShadows" value="true" placeholder="Enter true or false" required>
+                        </div>
+                    </div>
+                  </div>
+            
+            
+                  <!-- Step 3 -->
+                  <div class="form-step form-style hidden w-full max-w-none lg:max-w-[400px]">
+                    <div class="mb-5 flex flex-col items-center gap-5">
+                        <div class="w-full">
+                            <label for="headOptions">Head Options (JSON):</label>
+                            <textarea id="headOptions" rows="5" required>{"cushion":{"displayName":"Cushion","file":"cushion_halo.glb"},"pear":{"displayName":"Pear","file":"pear_halo.glb"},"round":{"displayName":"Round","file":"solitair.glb"}}</textarea>
+                        </div>
+                        <div class="w-full">
+                            <label for="defaultHead">Default Head Name:</label>
+                            <input type="text" id="defaultHead" value="cushion" placeholder="Enter head name (e.g., cushion)" required>
+                        </div>
+                        <div class="w-full">
+                            <label for="shankOptions">Shank Options (JSON):</label>
+                            <textarea id="shankOptions" rows="5" required>{"alliance":{"displayName":"Alliance","file":"alliance.glb"},"baguette":{"displayName":"Baguette","file":"baguette.glb"},"solitaire":{"displayName":"Solitaire","file":"soli.glb"},"pave":{"displayName":"Pave","file":"pave.glb"},"pave side":{"displayName":"Pave Side","file":"pave_side.glb"}}</textarea>
+                        </div>
+                        <div class="w-full">
+                            <label for="defaultShank">Default Shank Name:</label>
+                            <input type="text" id="defaultShank" value="solitaire" placeholder="Enter shank name (e.g., solitaire)" required>
+                        </div>
+                        <div class="w-full">
+                            <label for="metalOptions">Metal Options (JSON):</label>
+                            <textarea id="metalOptions" rows="5" required>{"yellow-gold":{"displayName":"Yellow-Gold","file":"layerconfig/gold-yellow.pmat"},"white-gold":{"displayName":"White-Gold","file":"layerconfig/gold-white.pmat"},"rose-gold":{"displayName":"Rose-Gold","file":"layerconfig/gold-rose.pmat"}}</textarea>
+                        </div>
+                        <div class="w-full">
+                            <label for="defaultMetal">Default Metal Name:</label>
+                            <input type="text" id="defaultMetal" value="yellow-gold" placeholder="Enter metal name (e.g., yellow-gold)" required>
+                        </div>
+                    </div>
+                  </div>
+
+                    <!-- Step 4 -->
+                    <div class="form-step form-style hidden w-full max-w-none lg:max-w-[400px]">
+                        <div class="mb-5 flex flex-col items-center gap-5">
+                            <div class="w-full">
+                                <label for="diamondOptions">Diamond Options (JSON):</label>
+                                <textarea id="diamondOptions" rows="5" required>{"diamond":{"displayName":"Diamond","file":"diamond.dmat"},"ruby":{"displayName":"Ruby","file":"ruby.dmat"},"diamondblack":{"displayName":"DiamondBlack","file":"diamondblack.dmat"},"sapphire":{"displayName":"Sapphire","file":"sapphire.dmat"}}</textarea>
+                            </div>
+                            <div class="w-full">
+                                <label for="defaultDiamond">Default Diamond Name:</label>
+                                <input type="text" id="defaultDiamond" value="diamond" placeholder="Enter diamond name (e.g., diamond)" required>
+                            </div>
+                            <div class="w-full">
+                                <label for="sideDiamondOptions">Side Diamond Options (JSON):</label>
+                                <textarea id="sideDiamondOptions" rows="5" required>{"diamond":{"displayName":"Diamond","file":"diamond.dmat"},"ruby":{"displayName":"Ruby","file":"ruby.dmat"},"diamondblack":{"displayName":"DiamondBlack","file":"diamondblack.dmat"},"sapphire":{"displayName":"Sapphire","file":"sapphire.dmat"}}</textarea>
+                            </div>
+                            <div class="w-full">
+                                <label for="defaultSideDiamond">Default Side Diamond Name:</label>
+                                <input type="text" id="defaultSideDiamond" value="diamond" placeholder="Enter side diamond name (e.g., diamond)" required>
+                            </div>
+                            <div class="w-full">
+                                <label for="cacheKeys">Diamond Cache Keys (JSON):</label>
+                                <textarea id="cacheKeys" rows="5" required>{"round":"Round","round_main":"Round_Main","pear":"Pear","cushion":"Cushion"}</textarea>
+                            </div>
+                        </div>
+                      </div>
+            
+                  <!-- Navigation Buttons -->
+                  <div class="mt-6 flex flex-col sm:flex-row justify-end gap-4 sm:gap-6">
+                    <button type="button" class="form-back hidden text-base font-medium px-6 py-2.5 rounded bg-indigo-600 text-white w-full sm:w-auto">Back</button>
+                    <button type="button" class="form-next flex items-center justify-center gap-2 rounded bg-indigo-600 px-6 py-2.5 font-medium text-white w-full sm:w-auto">
+                      Next Step
+                    </button>
+                  </div>
+              </div>
         </div>
-        <div class="form-group">
-            <label for="layerBase">Layer Base URL:</label>
-            <input type="text" id="layerBase" value="https://pixotronicscontent.s3.ap-south-1.amazonaws.com/layerconfig/" required>
-        </div>
-        <div class="form-group">
-            <label for="sceneSettings">Scene Settings URL:</label>
-            <input type="text" id="sceneSettings" value="https://pixotronicscontent.s3.ap-south-1.amazonaws.com/engagementring/scenesettings.vjson" required>
-        </div>
-        <div class="form-group">
-            <label for="canvasId">Canvas ID:</label>
-            <input type="text" id="canvasId" value="mcanvas" required>
-        </div>
-        <div class="form-group">
-            <label for="rootScaleFactor">Root Scale Factor:</label>
-            <input type="number" id="rootScaleFactor" value="1" step="0.1" required>
-        </div>
-        <div class="form-group">
-            <label for="viewerEnabled">Viewer Enabled (true/false):</label>
-            <input type="text" id="viewerEnabled" value="false" placeholder="Enter true or false" required>
-        </div>
-        <div class="form-group">
-            <label for="autoScale">Auto Scale (true/false):</label>
-            <input type="text" id="autoScale" value="false" placeholder="Enter true or false" required>
-        </div>
-        <div class="form-group">
-            <label for="autoCenter">Auto Center (true/false):</label>
-            <input type="text" id="autoCenter" value="false" placeholder="Enter true or false" required>
-        </div>
-        <div class="form-group">
-            <label for="displayCanvasScalingEnabled">Display Canvas Scaling Enabled (true/false):</label>
-            <input type="text" id="displayCanvasScalingEnabled" value="true" placeholder="Enter true or false" required>
-        </div>
-        <div class="form-group">
-            <label for="maxScale">Max Canvas Scale:</label>
-            <input type="number" id="maxScale" value="1.5" step="0.1" required>
-        </div>
-        <div class="form-group">
-            <label for="fitToViewOnLoad">Fit to View on Load (true/false):</label>
-            <input type="text" id="fitToViewOnLoad" value="true" placeholder="Enter true or false" required>
-        </div>
-        <div class="form-group">
-            <label for="importPopUp">Import Popup (true/false):</label>
-            <input type="text" id="importPopUp" value="false" placeholder="Enter true or false" required>
-        </div>
-        <div class="form-group">
-            <label for="enableDrop">Enable Drop (true/false):</label>
-            <input type="text" id="enableDrop" value="false" placeholder="Enter true or false" required>
-        </div>
-        <div class="form-group">
-            <label for="debugPluginEnabled">Debug Plugin Enabled (true/false):</label>
-            <input type="text" id="debugPluginEnabled" value="false" placeholder="Enter true or false" required>
-        </div>
-        <div class="form-group">
-            <label for="diamondPluginEnabled">Diamond Plugin Enabled (true/false):</label>
-            <input type="text" id="diamondPluginEnabled" value="true" placeholder="Enter true or false" required>
-        </div>
-        <div class="form-group">
-            <label for="normalMapRes">Diamond Plugin Normal Map Resolution:</label>
-            <input type="number" id="normalMapRes" value="512" required>
-        </div>
-        <div class="form-group">
-            <label for="cacheEnabled">Diamond Plugin Cache Enabled (true/false):</label>
-            <input type="text" id="cacheEnabled" value="true" placeholder="Enter true or false" required>
-        </div>
-        <div class="form-group">
-            <label for="groundPluginEnabled">Ground Plugin Enabled (true/false):</label>
-            <input type="text" id="groundPluginEnabled" value="true" placeholder="Enter true or false" required>
-        </div>
-        <div class="form-group">
-            <label for="autoBakeShadows">Ground Plugin Auto Bake Shadows (true/false):</label>
-            <input type="text" id="autoBakeShadows" value="true" placeholder="Enter true or false" required>
-        </div>
-        <div class="form-group">
-            <label for="headOptions">Head Options (JSON):</label>
-            <textarea id="headOptions" rows="5" required>{"cushion":{"displayName":"Cushion","file":"cushion_halo.glb"},"pear":{"displayName":"Pear","file":"pear_halo.glb"},"round":{"displayName":"Round","file":"solitair.glb"}}</textarea>
-        </div>
-        <div class="form-group">
-            <label for="defaultHead">Default Head Name:</label>
-            <input type="text" id="defaultHead" value="cushion" placeholder="Enter head name (e.g., cushion)" required>
-        </div>
-        <div class="form-group">
-            <label for="shankOptions">Shank Options (JSON):</label>
-            <textarea id="shankOptions" rows="5" required>{"alliance":{"displayName":"Alliance","file":"alliance.glb"},"baguette":{"displayName":"Baguette","file":"baguette.glb"},"solitaire":{"displayName":"Solitaire","file":"soli.glb"},"pave":{"displayName":"Pave","file":"pave.glb"},"pave side":{"displayName":"Pave Side","file":"pave_side.glb"}}</textarea>
-        </div>
-        <div class="form-group">
-            <label for="defaultShank">Default Shank Name:</label>
-            <input type="text" id="defaultShank" value="solitaire" placeholder="Enter shank name (e.g., solitaire)" required>
-        </div>
-        <div class="form-group">
-            <label for="metalOptions">Metal Options (JSON):</label>
-            <textarea id="metalOptions" rows="5" required>{"yellow-gold":{"displayName":"Yellow-Gold","file":"gold-yellow.pmat"},"white-gold":{"displayName":"White-Gold","file":"gold-white.pmat"},"rose-gold":{"displayName":"Rose-Gold","file":"gold-rose.pmat"}}</textarea>
-        </div>
-        <div class="form-group">
-            <label for="defaultMetal">Default Metal Name:</label>
-            <input type="text" id="defaultMetal" value="yellow-gold" placeholder="Enter metal name (e.g., yellow-gold)" required>
-        </div>
-        <div class="form-group">
-            <label for="diamondOptions">Diamond Options (JSON):</label>
-            <textarea id="diamondOptions" rows="5" required>{"diamond":{"displayName":"Diamond","file":"diamond.dmat"},"ruby":{"displayName":"Ruby","file":"ruby.dmat"},"diamondblack":{"displayName":"DiamondBlack","file":"diamondblack.dmat"},"sapphire":{"displayName":"Sapphire","file":"sapphire.dmat"}}</textarea>
-        </div>
-        <div class="form-group">
-            <label for="defaultDiamond">Default Diamond Name:</label>
-            <input type="text" id="defaultDiamond" value="diamond" placeholder="Enter diamond name (e.g., diamond)" required>
-        </div>
-        <div class="form-group">
-            <label for="sideDiamondOptions">Side Diamond Options (JSON):</label>
-            <textarea id="sideDiamondOptions" rows="5" required>{"diamond":{"displayName":"Diamond","file":"diamond.dmat"},"ruby":{"displayName":"Ruby","file":"ruby.dmat"},"diamondblack":{"displayName":"DiamondBlack","file":"diamondblack.dmat"},"sapphire":{"displayName":"Sapphire","file":"sapphire.dmat"}}</textarea>
-        </div>
-        <div class="form-group">
-            <label for="defaultSideDiamond">Default Side Diamond Name:</label>
-            <input type="text" id="defaultSideDiamond" value="diamond" placeholder="Enter side diamond name (e.g., diamond)" required>
-        </div>
-        <div class="form-group">
-            <label for="cacheKeys">Diamond Cache Keys (JSON):</label>
-            <textarea id="cacheKeys" rows="5" required>{"round":"Round","round_main":"Round_Main","pear":"Pear","cushion":"Cushion"}</textarea>
-        </div>
-        <div class="form-group">
-            <label for="uiContainerId">UI Container ID:</label>
-            <input type="text" id="uiContainerId" value="mconfigurator" required>
-        </div>
-        <div class="form-group">
-            <label for="uiClearContainer">Clear UI Container (true/false):</label>
-            <input type="text" id="uiClearContainer" value="true" placeholder="Enter true or false" required>
-        </div>
-        <div class="form-group">
-            <label for="buttonClass">Button Class:</label>
-            <input type="text" id="buttonClass" value="config-button" required>
-        </div>
-        <div class="form-group">
-            <label for="sectionClass">Section Class:</label>
-            <input type="text" id="sectionClass" value="variations" required>
-        </div>
-        <div class="form-group">
-            <label for="showSectionTitles">Show Section Titles (true/false):</label>
-            <input type="text" id="showSectionTitles" value="true" placeholder="Enter true or false" required>
-        </div>
-        <div class="form-group">
-            <label for="disposeOldModels">Dispose Old Models (true/false):</label>
-            <input type="text" id="disposeOldModels" value="true" placeholder="Enter true or false" required>
-        </div>
-        <div class="form-group">
-            <label for="memoryCleanup">Memory Cleanup (true/false):</label>
-            <input type="text" id="memoryCleanup" value="true" placeholder="Enter true or false" required>
-        </div>
-        <div class="form-group">
-            <label for="refreshPipelineOnPluginAdd">Refresh Pipeline on Plugin Add (true/false):</label>
-            <input type="text" id="refreshPipelineOnPluginAdd" value="true" placeholder="Enter true or false" required>
-        </div>
-        <div class="form-group">
-            <label for="setDirtyOnMaterialChange">Set Dirty on Material Change (true/false):</label>
-            <input type="text" id="setDirtyOnMaterialChange" value="true" placeholder="Enter true or false" required>
-        </div>
-        <button type="button" id="buildButton">Build Configurator</button>
     </div>
     <canvas id="mcanvas"></canvas>
     <div id="mconfigurator"></div>
-    </div>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>

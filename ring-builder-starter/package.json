@@ -9,9 +9,12 @@
     "preview": "vite preview"
   },
   "devDependencies": {
+    "@types/webgi": "https://dist.pixotronics.com/webgi/runtime/bundle-types-0.11.0.tgz",
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^3.4.17",
     "typescript": "~5.8.3",
     "vite": "^7.0.0",
-    "webgi": "https://dist.pixotronics.com/webgi/runtime/bundle-0.11.0.tgz",
-	"@types/webgi": "https://dist.pixotronics.com/webgi/runtime/bundle-types-0.11.0.tgz"
+    "webgi": "https://dist.pixotronics.com/webgi/runtime/bundle-0.11.0.tgz"
   }
 }
