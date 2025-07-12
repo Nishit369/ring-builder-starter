@@ -1,4 +1,4 @@
-import {AssetManagerPlugin, DiamondPlugin, GroundPlugin, ViewerApp, addBasePlugins} from "webgi";
+import {AssetManagerPlugin, DiamondPlugin, GroundPlugin, ViewerApp, addBasePlugins, LoadingScreenPlugin} from "webgi";
 import { JEWELRY_CONFIG } from "./config";
 
 
@@ -62,6 +62,12 @@ if (!canvas) throw new Error(`The canvas mcanvas was not found`)
     if(ground) ground.autoBakeShadows = false;
 
     const manager = viewer.getPlugin(AssetManagerPlugin);
+    const loading = await viewer.getOrAddPlugin(LoadingScreenPlugin);
+    loading.loadingTextHeader="Building your Configurator";
+    loading.logoImage="/panther.png"
+    loading.showFileNames = false;
+    loading.showOnFilesLoading = false;
+    console.log(loading)
     //diamonds there in your model?
     if (JEWELRY_CONFIG.materials.diamonds.enabled) 
     {
@@ -312,7 +318,6 @@ async function updateShank(shankName = JEWELRY_CONFIG.models.shanks.defaultOptio
         });
       }
       viewer.scene.backgroundColor?.set("black");
-      console.log(viewer.scene)
 
     
        
