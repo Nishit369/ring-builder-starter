@@ -10,14 +10,14 @@
   <body class="bg-[#1b1b1f]">
     <div id="container">
         <div id="home" class="flex flex-col lg:flex-row justify-center items-center min-h-screen w-full">
-            <div class="flex-1 flex justify-center items-center p-5 bg-transparent box-border min-h-[40vh] lg:min-h-screen">
+            <div class="w-full lg:w-1/2 flex justify-center items-center p-5 bg-transparent box-border min-h-[40vh] lg:min-h-screen">
                 <img src="panther.png" alt="Panther Logo" class="max-w-[50vw] max-h-[40vh] lg:max-h-[50vh] object-contain"/>
             </div>
-            <div class="w-full max-w-[90vw] lg:max-w-[800px] bg-gradient-to-br from-[#4f4f51] to-[#262626] p-4 lg:p-6 shadow-md mx-4 lg:mx-8">
+            <div class="w-full lg:w-1/2 max-w-[90vw] lg:max-w-[800px] bg-gradient-to-br from-[#4f4f51] to-[#262626] p-4 lg:p-6 shadow-md mx-4 lg:mx-8">
                   <!-- Step Indicators -->
-                  <h2 class="text-white text-xl text-center mb-4" >Ring Configurator</h2>
+                  <h2 class="text-xl sm:text-4xl text-center mb-4 text-transparent bg-clip-text bg-[linear-gradient(to_right,_#ffffff,_#d1d1d1,_#ffffff)] font-bold tracking-wide drop-shadow-md" >Ring Configurator Builder</h2>
                   <div class="mb-6 lg:mb-8 border-b border-gray-300 pb-4">
-                    <ul class="flex flex-wrap gap-2 lg:gap-10 justify-center lg:justify-start">
+                    <ul class="flex flex-wrap gap-2 lg:gap-8 justify-center lg:justify-start">
                       <li class="form-step-indicator active flex items-center gap-2 lg:gap-3 text-sm lg:text-base font-medium text-gray-400">
                         <span class="flex h-8 w-8 lg:h-9 lg:w-9 items-center justify-center rounded-full bg-gray-200 text-gray-500 text-sm lg:text-base">1</span>
                         <span class="hidden sm:inline">Models Info</span>
@@ -28,7 +28,7 @@
                       </li>
                       <li class="form-step-indicator flex items-center gap-2 lg:gap-3 text-sm lg:text-base font-medium text-gray-400">
                         <span class="flex h-8 w-8 lg:h-9 lg:w-9 items-center justify-center rounded-full bg-gray-200 text-gray-500 text-sm lg:text-base">3</span>
-                        <span class="hidden sm:inline">Head, Shank, Metal Info</span>
+                        <span class="hidden sm:inline">Parts Info</span>
                       </li>
                       <li class="form-step-indicator flex items-center gap-2 lg:gap-3 text-sm lg:text-base font-medium text-gray-400">
                         <span class="flex h-8 w-8 lg:h-9 lg:w-9 items-center justify-center rounded-full bg-gray-200 text-gray-500 text-sm lg:text-base">4</span>
@@ -133,8 +133,8 @@
             
                   <!-- Navigation Buttons -->
                   <div class="mt-6 flex flex-col sm:flex-row justify-end gap-4 sm:gap-6">
-                    <button type="button" class="form-back hidden text-base font-medium px-6 py-2.5 rounded bg-indigo-600 text-white w-full sm:w-auto">Back</button>
-                    <button type="button" class="form-next flex items-center justify-center gap-2 rounded bg-indigo-600 px-6 py-2.5 font-medium text-white w-full sm:w-auto">
+                    <button type="button" class="form-back hidden text-base font-medium px-6 py-2.5 rounded-full bg-[#6E72F2] text-white w-full sm:w-auto">Back</button>
+                    <button type="button" class="form-next flex items-center justify-center gap-2 rounded-full bg-[#6E72F2] px-6 py-2.5 font-medium text-white w-full sm:w-auto">
                       Next Step
                     </button>
                   </div>

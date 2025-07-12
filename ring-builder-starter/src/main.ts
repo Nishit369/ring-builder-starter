@@ -311,7 +311,7 @@ async function updateShank(shankName = JEWELRY_CONFIG.models.shanks.defaultOptio
           container.appendChild(button);
         });
       }
-      viewer.scene.backgroundColor = "#000000";
+      viewer.scene.backgroundColor?.set("black");
       console.log(viewer.scene)
 
     
@@ -352,14 +352,14 @@ let currentStep = 0;
 function showStep(index: number) {
   steps.forEach((step, i) => {
     step.classList.toggle('hidden', i !== index);
-    indicators[i].classList.toggle('text-gray-900', i === index);
-    indicators[i].querySelector('span').classList.toggle('bg-indigo-400', i === index);
+    indicators[i].classList.toggle('text-white', i === index);
+    indicators[i].querySelector('span').classList.toggle('bg-[#6E72F3]', i === index);
     indicators[i].querySelector('span').classList.toggle('text-white', i === index);
   });
   backBtn.classList.toggle('hidden', index === 0);
   nextBtn.textContent = index === 3 ? 'Build Configurator' : 'Next Step';
+  nextBtn.classList.toggle('bg-[linear-gradient(120deg,_#bd34fe_30%,_#41d1ff)]', index === 3);
 }
-
 
 nextBtn.addEventListener('click', () => {
   if (currentStep < steps.length - 1) {
